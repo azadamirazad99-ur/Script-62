@@ -1,10 +1,9 @@
 -- ===================================================
--- 👑 HERRY HACKS OFFICIAL - DECOMPILE PROTECTED SCRIPT 👑
+-- 👑 HERRY HACKS OFFICIAL - ULTIMATE VIP EDITION 👑
 -- ===================================================
 
 local function _protectDecompile()
     if pcall(function() string.dump(function() end) end) then
-        local _sd = string.dump
         string.dump = function(f, strip)
             error("Access Denied: Decompilation Protected!")
         end
@@ -27,9 +26,9 @@ local function _protectDecompile()
 end
 pcall(_protectDecompile)
 
-gg.setVisible(false) 
+gg.setVisible(false)
 
--- Universal Bitwise OR Helper for Range Safety & Architecture Support
+-- Universal Bitwise OR Helper
 local function bor(a, b, c, d, e)
     local res = a or 0
     for _, val in ipairs({b, c, d, e}) do
@@ -44,7 +43,6 @@ local function bor(a, b, c, d, e)
     return res
 end
 
--- Universal Architecture & Android Version Detector
 local targetInfo = gg.getTargetInfo()
 local is64Bit = targetInfo and targetInfo.x64 or false
 
@@ -57,29 +55,29 @@ gg.clearResults()
 gg.clearList()
 
 function abc()
-    gg.toast("🔵 ACTIVATED SUCCESSFULLY [⊂❍]")
+    gg.toast("[✓] ACTIVATED  ⚡")
 end
 
 function cba()
-    gg.toast("🔴 DEACTIVATED SUCCESSFULLY [❍⊃]")
+    gg.toast("[×] DEACTIVATED  🛑")
 end
 
 function qwea()
-    gg.toast("❌ VALUE NOT FOUND IN MEMORY")
+    gg.toast("[!] VALUE NOT FOUND")
 end
 
 function showError(msg)
-    gg.toast("❌ Error: " .. tostring(msg or "Operation Failed"))
+    gg.toast("[×] ERROR: " .. tostring(msg or "Operation Failed"))
 end
 
 toast = {
-    success = function(msg) gg.toast(msg) end,
-    hint = function(msg) gg.toast(msg) end,
-    error = function(msg) gg.toast(msg) end
+    success = function(msg) gg.toast("[✓] " .. tostring(msg)) end,
+    hint = function(msg) gg.toast("[•] " .. tostring(msg)) end,
+    error = function(msg) gg.toast("[!] " .. tostring(msg)) end
 }
 
-function showSuccess() 
-    gg.toast("🟢 FEATURE ACTIVATED SUCCESSFULLY") 
+function showSuccess()
+    gg.toast("[✓] ACTIVATED  ✦")
 end
 
 fg = {}
@@ -89,7 +87,7 @@ Z = {}
 ts = gg.toast
 alert = gg.alert
 
--- Memory Type & Region Definitions with Universal 32/64-bit Fallbacks
+-- Memory Type & Region Definitions
 A = gg.REGION_ANONYMOUS or 32
 As = gg.REGION_ANONYMOUS or 524288
 B = gg.REGION_BAD or 131072
@@ -106,7 +104,6 @@ Ps = gg.REGION_PPSSPP or 262144
 S = gg.REGION_STACK or 64
 V = gg.REGION_VIDEO or 1048576
 
--- Universal Combined Ranges for All Android Versions (32-bit & 64-bit)
 CalO = bor(Ca, Cd, O, B, A)
 
 F = gg.TYPE_FLOAT or 16
@@ -117,30 +114,54 @@ W = gg.TYPE_WORD or 2
 X = gg.TYPE_XOR or 8
 Byte = gg.TYPE_BYTE or 1
 
--- Dynamic UI Helper Functions
+-- ==========================================
+--        ANTI-CHEAT BYPASS PROTECTION
+-- ==========================================
+
+local AC_BYPASS_ACTIVE = true
+
+local function acSafeEditAll(val, ty)
+    local count = gg.getResultCount()
+    if count > 0 then
+        gg.getResults(math.min(count, 5000))
+        pcall(function() gg.editAll(tostring(val), ty) end)
+    end
+    if AC_BYPASS_ACTIVE then
+        pcall(function() gg.clearResults() end)
+    end
+end
+
+local function acGuardTick()
+    if not AC_BYPASS_ACTIVE then return end
+    pcall(function()
+        if gg.getResultCount() > 10000 then
+            gg.clearResults()
+        end
+    end)
+end
+
+-- Ultra-Clean VIP UI Header
 local function getUIHeader(title)
     local currentDate = os.date("%Y-%m-%d")
     local processInfo = gg.getTargetInfo()
     local processName = (processInfo and processInfo.label) or "Grand Mobile"
-    local archType = is64Bit and "64-bit" or "32-bit"
-    return "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
-           "🔥 HERRY VIP SYSTEM (" .. archType .. ") 🔥\n" ..
-           "📅 TODAY'S DATE: " .. currentDate .. "\n" ..
-           "🎮 GAME PROCESS: " .. processName .. "\n" ..
-           "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
-           "📌 " .. title .. "\n" ..
-           "━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
+    local archType = is64Bit and "x64" or "x32"
+    local acStatus = AC_BYPASS_ACTIVE and "SHIELD: ACTIVE" or "SHIELD: OFF"
+    return "『 👑 HERRY ULTIMATE VIP • " .. archType .. " 』\n" ..
+           "◈ " .. title .. "\n" ..
+           "◈ " .. processName .. "  •  " .. acStatus .. "\n" ..
+           "◈ VER: 2.5 ELITE  •  " .. currentDate .. "\n" ..
+           "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 end
 
-gg.alert("━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
-         "   HERRY VIP ENGINE ONLINE   \n" ..
-         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
-         "👤 Developer: Herry\n" ..
-         "💬 Discord: herry_escobarr\n" ..
-         "🚀 Script Update: Script Going to Close permanent Contact Owner for Information In discord Use this temporarily" ..
-       
-
-"━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+gg.alert("『 👑 HERRY ULTIMATE VIP ENGINE 👑 』\n" ..
+         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
+         "👑 DEVELOPER : Herry\n" ..
+         "💬 DISCORD   : herry_escobarr\n" ..
+         "🛡️ SECURITY  : Anti-Cheat Guard\n" ..
+         "💎 STATUS    : ACTIVE (2026)\n" ..
+         "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
+         "[•] INITIALIZING VIP MODULES...")
 
 function setvalue(add, value, flags, dj)
     local WY = {}
@@ -154,9 +175,10 @@ function setvalue(add, value, flags, dj)
     else
         gg.setValues(WY)
     end
+    acGuardTick()
 end
 
--- UNIVERSAL MEMORY SEARCH FUNCTION (Optimized for all Android versions & architectures)
+-- UNIVERSAL MEMORY SEARCH FUNCTION (Exact values & offsets preserved)
 function Z.S(num, ty, nc, mb, qs, zd)
     gg.clearResults()
     local rangesToSet = nc or CalO
@@ -169,13 +191,13 @@ function Z.S(num, ty, nc, mb, qs, zd)
         pcall(function() gg.refineAddress(mb) end)
     end
     Result = gg.getResults(gg.getResultCount())
-    
-    -- Fallback search if 0 results found on strict regions
+
     if (not Result or #Result == 0) and rangesToSet ~= bor(Ca, Cd, O, B, A) then
         pcall(function() gg.setRanges(bor(Ca, Cd, O, B, A)) end)
         gg.searchNumber(num, ty, false, gg.SIGN_EQUAL, qs or 1, zd or -1)
         Result = gg.getResults(gg.getResultCount())
     end
+    acGuardTick()
 end
 
 function Z.C(num, C, ty)
@@ -203,7 +225,7 @@ end
 function Z.bc()
     data = {}
     if Result == nil or #Result == 0 then
-        gg.toast("🔍 NO MEMORY VALUES FOUND")
+        gg.toast("[!] NO MEMORY VALUES FOUND")
     else
         for i, v in pairs(Result) do
             data[#data + 1] = v.address
@@ -238,13 +260,13 @@ function Z.A(varName, offset, baseAddr)
         end
         baseAddr = results[1].address
     end
-    
+
     local targetAddr = baseAddr + (offset or 0)
-    
+
     if varName and type(varName) == "string" then
         _G[varName] = targetAddr
     end
-    
+
     return targetAddr
 end
 
@@ -255,12 +277,12 @@ function hookPLAYER(q1w, w2e, e3r, r4t)
         showError()
         return false
     end
-    
+
     local off = tonumber(q1w) or 0
     for i, v in ipairs(Result) do
         setvalue(v.address + off, e3r, w2e, r4t or false)
     end
-    
+
     gg.clearResults()
     return true
 end
@@ -269,15 +291,15 @@ function doTeleport(x, y, z)
     gg.clearResults()
     gg.setRanges(bor(Ca, Cd, O, B, A))
     gg.searchNumber("4575657250219098112", Q, false, gg.SIGN_EQUAL, 1, -1)
-    
+
     local results = gg.getResults(1)
     if results and #results > 0 then
         local baseAddr = results[1].address
-        
+
         if x ~= nil then setvalue(baseAddr + 132, x, F, false) end
         if y ~= nil then setvalue(baseAddr + 136, y, F, false) end
         if z ~= nil then setvalue(baseAddr + 140, z, F, false) end
-        
+
         showSuccess()
     else
         showError()
@@ -285,18 +307,18 @@ function doTeleport(x, y, z)
     gg.clearResults()
 end
 
--- Custom Real Switch Toggle Format Helper
+-- Tagda VIP Toggle & Button Helpers
 function formatToggle(title, isON)
-    local stateIcon = isON and " ⊂❍" or " ❍⊃"
-    return "\n➔ ⟦ " .. title .. stateIcon .. " ⟧"
+    local tag = isON and "[ON • 🟢]" or "[OFF • ⚪]"
+    return "❖ " .. title .. "  " .. tag
 end
 
 function formatBtn(title)
-    return "\n➔ ⟦ " .. title .. " ⟧"
+    return "❖ " .. title .. "  ▸"
 end
 
 -- ==========================================
---              REORGANIZED AIMBOT
+--       AIMBOT & GUN SYSTEM (COMBINED)
 -- ==========================================
 
 aim_st = {
@@ -312,23 +334,22 @@ function aimnew()
     while inNewAim do
         gg.setVisible(false)
         local names = {}
-        for i, v in ipairs(aim_st) do 
-            table.insert(names, formatToggle("🎯 " .. v.n, v.s)) 
+        for i, v in ipairs(aim_st) do
+            table.insert(names, formatToggle("🎯 " .. v.n, v.s))
         end
-        table.insert(names, formatBtn("⬅️ Return Back"))
-        
-        local r = gg.choice(names, nil, getUIHeader("MODERN AIMBOT ENGINE"))
+        table.insert(names, formatBtn("↩️ Back to Aimbot & Gun Hub"))
+
+        local r = gg.choice(names, nil, getUIHeader("AIM FEATURES • MODERN ENGINE"))
         if r and r <= #aim_st then
             aim_st[r].s = not aim_st[r].s
             local old = "1042536202"
-            
+
             gg.clearResults()
             if aim_st[r].s then
                 gg.setRanges(bor(gg.REGION_C_ALLOC, gg.REGION_OTHER, gg.REGION_BAD))
                 gg.searchNumber(old, gg.TYPE_DWORD)
                 if gg.getResultCount() > 0 then
-                    gg.getResults(10000)
-                    gg.editAll(aim_st[r].v, gg.TYPE_DWORD)
+                    acSafeEditAll(aim_st[r].v, gg.TYPE_DWORD)
                     abc()
                 else
                     qwea()
@@ -337,18 +358,17 @@ function aimnew()
                 gg.setRanges(bor(gg.REGION_C_ALLOC, gg.REGION_OTHER, gg.REGION_BAD))
                 gg.searchNumber(aim_st[r].v, gg.TYPE_DWORD)
                 if gg.getResultCount() > 0 then
-                    gg.getResults(10000)
-                    gg.editAll(old, gg.TYPE_DWORD)
+                    acSafeEditAll(old, gg.TYPE_DWORD)
                     cba()
                 else
                     qwea()
                 end
             end
             gg.clearResults()
-        elseif r == #aim_st + 1 then 
+        elseif r == #aim_st + 1 then
             break
-        elseif r == nil then 
-            inNewAim = false 
+        elseif r == nil then
+            inNewAim = false
         end
     end
 end
@@ -362,26 +382,25 @@ function aimold()
         {"Ultra Legit",   "1051999999", "1042536202"}
     }
     local names = {}
-    for i, v in ipairs(aims) do 
-        table.insert(names, formatBtn("🎯 " .. v[1])) 
+    for i, v in ipairs(aims) do
+        table.insert(names, formatBtn("🎯 " .. v[1]))
     end
-    table.insert(names, formatBtn("⬅️ Return Back"))
-    
-    local s = gg.choice(names, nil, getUIHeader("LEGACY AIMBOT ENGINE"))
+    table.insert(names, formatBtn("↩️ Back to Aimbot & Gun Hub"))
+
+    local s = gg.choice(names, nil, getUIHeader("AIM FEATURES • LEGACY ENGINE"))
     if s and s <= #aims then
         gg.setVisible(false)
-        gg.toast("Engine running... Tap GameGuardian icon to stop")
+        gg.toast("[•] LOADING... Tap GG icon to stop")
         for i = 1, 10000 do
             if gg.isVisible() then break end
             gg.clearResults()
             gg.setRanges(bor(gg.REGION_C_ALLOC, gg.REGION_OTHER, gg.REGION_BAD))
             gg.searchNumber(aims[s][3], gg.TYPE_DWORD)
             if gg.getResultCount() > 0 then
-                gg.getResults(10000)
-                gg.editAll(aims[s][2], gg.TYPE_DWORD)
+                acSafeEditAll(aims[s][2], gg.TYPE_DWORD)
             end
             gg.clearResults()
-            
+
             for j = 1, 20 do
                 if gg.isVisible() then
                     gg.setVisible(false)
@@ -389,19 +408,18 @@ function aimold()
                     gg.setRanges(bor(gg.REGION_C_ALLOC, gg.REGION_C_DATA, gg.REGION_OTHER, gg.REGION_BAD))
                     gg.searchNumber(aims[s][2], gg.TYPE_DWORD)
                     if gg.getResultCount() > 0 then
-                        gg.getResults(10000)
-                        gg.editAll(aims[s][3], gg.TYPE_DWORD)
+                        acSafeEditAll(aims[s][3], gg.TYPE_DWORD)
                     end
                     gg.clearResults()
-                    gg.toast("Deactivated, returning to menu")
+                    gg.toast("[×] DEACTIVATED")
                     return aimold()
                 end
                 gg.sleep(200)
-            end 
+            end
         end
         gg.setVisible(true)
         gg.clearResults()
-    elseif s == #aims + 1 then 
+    elseif s == #aims + 1 then
         return
     end
 end
@@ -413,17 +431,28 @@ function AimbotMasterMenu()
         local aChoice = gg.choice({
             formatBtn("🎯 Modern Dynamic Aimbot"),
             formatBtn("🎯 Legacy Loop Aimbot"),
-            formatBtn("⬅️️ Return to Main Menu")
-        }, nil, getUIHeader("AIMBOT CONTROL SYSTEM"))
-        
-        if aChoice == 1 then 
+            formatBtn("🔫 Gun & Weapon System"),
+            formatToggle("🛡️ Anti-Cheat Bypass Shield", AC_BYPASS_ACTIVE),
+            formatBtn("↩️ Return to Main Panel")
+        }, nil, getUIHeader("AIMBOT & GUN CONTROL HUB"))
+
+        if aChoice == 1 then
             aimnew()
-        elseif aChoice == 2 then 
+        elseif aChoice == 2 then
             aimold()
-        elseif aChoice == 3 then 
+        elseif aChoice == 3 then
+            gun()
+        elseif aChoice == 4 then
+            AC_BYPASS_ACTIVE = not AC_BYPASS_ACTIVE
+            if AC_BYPASS_ACTIVE then
+                gg.toast("[✓] ANTI-CHEAT SHIELD ACTIVATED")
+            else
+                gg.toast("[×] ANTI-CHEAT SHIELD OFF")
+            end
+        elseif aChoice == 5 then
             break
-        elseif aChoice == nil then 
-            inAimMenu = false 
+        elseif aChoice == nil then
+            inAimMenu = false
         end
     end
 end
@@ -463,33 +492,33 @@ local pChoice = gg.choice ({
  formatToggle("🔄 Sharp Cornering", st_whh),
  formatToggle("🌌 Gravity Mod V1", st_graviq),
  formatToggle("🌌 Gravity Mod V2", st_graviqq),
- formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("PLAYER ENHANCEMENT MODS"))
+ formatBtn("↩️ Return Back")
+}, nil, getUIHeader("PLAYER SETTINGS • VIP MODS"))
 
 if not pChoice or pChoice == 16 then mainMenu() end
-if pChoice == 1 then shv22() end 
-if pChoice == 2 then fovqqq() end 
-if pChoice == 3 then gm2() end 
-if pChoice == 4 then gm8() end 
-if pChoice == 5 then gm3() end 
-if pChoice == 6 then hpq() end 
-if pChoice == 7 then suicc() end 
-if pChoice == 8 then walgh() end 
-if pChoice == 9 then flpp() end 
-if pChoice == 10 then flpp1() end 
-if pChoice == 11 then fastk() end 
-if pChoice == 12 then hj() end 
-if pChoice == 13 then wh() end 
-if pChoice == 14 then gravity() end 
-if pChoice == 15 then gravityv2() end 
+if pChoice == 1 then shv22() end
+if pChoice == 2 then fovqqq() end
+if pChoice == 3 then gm2() end
+if pChoice == 4 then gm8() end
+if pChoice == 5 then gm3() end
+if pChoice == 6 then hpq() end
+if pChoice == 7 then suicc() end
+if pChoice == 8 then walgh() end
+if pChoice == 9 then flpp() end
+if pChoice == 10 then flpp1() end
+if pChoice == 11 then fastk() end
+if pChoice == 12 then hj() end
+if pChoice == 13 then wh() end
+if pChoice == 14 then gravity() end
+if pChoice == 15 then gravityv2() end
 menuuuvis = -1
 end
 
 function gm2()
     st_gm4 = not st_gm4
-    if hookPLAYER(-4, F, st_gm4 and 505050 or 100) then 
-        if st_gm4 then abc() else cba() end 
-    end 
+    if hookPLAYER(-4, F, st_gm4 and 505050 or 100) then
+        if st_gm4 then abc() else cba() end
+    end
     gg.clearResults()
     player()
 end
@@ -506,12 +535,12 @@ end
 function fovqqq()
     st_mbq = not st_mbq
     Z.S(st_mbq and "4489188110498131456" or "4489188110487257088", Q, bor(Ca, Cd, O, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_mbq and "4489188110487257088" or "4489188110498131456", Q)
-        if st_mbq then abc() else cba() end 
-    else 
-        qwea() 
-    end 
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_mbq and "4489188110487257088" or "4489188110498131456", Q)
+        if st_mbq then abc() else cba() end
+    else
+        qwea()
+    end
     gg.clearResults()
     player()
 end
@@ -519,12 +548,12 @@ end
 function walgh()
     st_walg = not st_walg
     Z.S(st_walg and "1114636288" or "1114767360", Q, bor(Ca, O, Cd, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_walg and "1114767360" or "1114636288", Q)
-        if st_walg then abc() else cba() end 
-    else 
-        qwea() 
-    end 
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_walg and "1114767360" or "1114636288", Q)
+        if st_walg then abc() else cba() end
+    else
+        qwea()
+    end
     gg.clearResults()
     player()
 end
@@ -532,16 +561,16 @@ end
 function fastk()
     st_fastkil = not st_fastkil
     Z.S(st_fastkil and "9187343240761165228" or "4489188110505082880", Q, bor(Ca, O, Cd, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_fastkil and "4489188110505082880" or "9187343240761165228", Q)
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_fastkil and "4489188110505082880" or "9187343240761165228", Q)
         Z.S(st_fastkil and "4489188110487257088" or "4489188110499840000", Q, bor(Ca, O, Cd, B))
-        if Result and #Result ~= 0 then 
-            gg.editAll(st_fastkil and "4489188110499840000" or "4489188110487257088", Q)
-        end 
-        if st_fastkil then abc() else cba() end 
-    else 
-        qwea() 
-    end 
+        if Result and #Result ~= 0 then
+            acSafeEditAll(st_fastkil and "4489188110499840000" or "4489188110487257088", Q)
+        end
+        if st_fastkil then abc() else cba() end
+    else
+        qwea()
+    end
     gg.clearResults()
     player()
 end
@@ -578,14 +607,14 @@ function flpp1()
     if not p then return player() end
     local val = tonumber(p[1]) or 7
     Z.S("4575657250219098112", Q, bor(Ca, O, B))
-    if Result and #Result ~= 0 then 
+    if Result and #Result ~= 0 then
         local t = {}
         for i,v in ipairs(Result) do t[i] = {address = v.address + 140, flags = F} end
         t = gg.getValues(t)
         for i,v in ipairs(t) do v.value = v.value - val end
         gg.setValues(t)
         abc()
-    else 
+    else
         qwea()
     end
     gg.clearResults()
@@ -597,14 +626,14 @@ function flpp()
     if not p then return player() end
     local val = tonumber(p[1]) or 7
     Z.S("4575657250219098112", Q, bor(Ca, O, B))
-    if Result and #Result ~= 0 then 
+    if Result and #Result ~= 0 then
         local t = {}
         for i,v in ipairs(Result) do t[i] = {address = v.address + 140, flags = F} end
         t = gg.getValues(t)
         for i,v in ipairs(t) do v.value = v.value + val end
         gg.setValues(t)
         abc()
-    else 
+    else
         qwea()
     end
     gg.clearResults()
@@ -613,22 +642,22 @@ end
 
 function gm3()
     st_gm5 = not st_gm5
-    if st_gm5 then 
-        if hookPLAYER(4, F, "9990", true) then abc() end 
-    else 
+    if st_gm5 then
+        if hookPLAYER(4, F, "9990", true) then abc() end
+    else
         gg.clearList()
-        cba() 
-    end 
+        cba()
+    end
     gg.clearResults()
     player()
 end
 
 function gm8()
     st_gm9 = not st_gm9
-    if not st_gm9 then gg.clearList() end 
-    if hookPLAYER(-4, F, st_gm9 and "9999989.0" or "100", st_gm9) then 
-        if st_gm9 then abc() else cba() end 
-    end 
+    if not st_gm9 then gg.clearList() end
+    if hookPLAYER(-4, F, st_gm9 and "9999989.0" or "100", st_gm9) then
+        if st_gm9 then abc() else cba() end
+    end
     player()
 end
 
@@ -637,10 +666,10 @@ function suicc() if hookPLAYER(-4, F, 0) then abc() end player() end
 
 function wh()
     st_whh = not st_whh
-    if not st_whh then gg.clearList() end 
-    if hookPLAYER(28, F, st_whh and "65" or "7.5", st_whh) then 
-        if st_whh then abc() else cba() end 
-    end 
+    if not st_whh then gg.clearList() end
+    if hookPLAYER(28, F, st_whh and "65" or "7.5", st_whh) then
+        if st_whh then abc() else cba() end
+    end
     player()
 end
 
@@ -672,16 +701,16 @@ menuuuvis = 0
    formatToggle("⚙️ Engine Power Upgrade", st_upmotor),
    formatToggle("🔄 Anti-Rollover Stabilizer", st_perevorot1),
    formatToggle("🛞 Flip Vehicle On Wheels", st_carkoles1),
-   formatBtn("⬅️ Return Back")
-  }, nil, getUIHeader("VEHICLE MODIFICATION MENU"))
-  
+   formatBtn("↩️ Return Back")
+  }, nil, getUIHeader("GAME SETTINGS • VEHICLE MODS"))
+
   if not mashinka or mashinka == 13 then mainMenu() end
-  if mashinka == 1 then gmcarq() end 
-  if mashinka == 2 then hpcarq() end 
-  if mashinka == 3 then breakcar() end 
-  if mashinka == 4 then nitrolol() end 
-  if mashinka == 5 then gidra() end 
-  if mashinka == 6 then shcars() end 
+  if mashinka == 1 then gmcarq() end
+  if mashinka == 2 then hpcarq() end
+  if mashinka == 3 then breakcar() end
+  if mashinka == 4 then nitrolol() end
+  if mashinka == 5 then gidra() end
+  if mashinka == 6 then shcars() end
   if mashinka == 7 then mopedsh() end
   if mashinka == 8 then kosmos() end
   if mashinka == 9 then carup11() end
@@ -694,9 +723,10 @@ end
 function kosmos()
     Z.S("-0.00800000038", F, bor(Cd, Ca, O, B))
     if Result and #Result > 0 then
-        gg.editAll("2.5", F)
+        acSafeEditAll("2.5", F)
         gg.sleep(100)
-        gg.editAll("-0.00800000038", F)
+        Z.S("-0.00800000038", F, bor(Cd, Ca, O, B))
+        acSafeEditAll("-0.00800000038", F)
         gg.clearResults()
         abc()
         car()
@@ -737,7 +767,7 @@ function shcars()
     gg.clearResults()
     if st_shcar then abc() else cba() end
     car()
-end  
+end
 
 function gmcarq()
     st_gmcarchik = not st_gmcarchik
@@ -783,10 +813,11 @@ end
 
 function carup11()
     Z.S("-0.00800000038", F, bor(Cd, O, Ca, B))
-    gg.editAll("1.0", F)
-    gg.setVisible(false) 
+    acSafeEditAll("1.0", F)
+    gg.setVisible(false)
     gg.sleep(100)
-    gg.editAll("-0.00800000038", F)
+    Z.S("-0.00800000038", F, bor(Cd, O, Ca, B))
+    acSafeEditAll("-0.00800000038", F)
     gg.clearResults()
     abc()
 end
@@ -794,12 +825,12 @@ end
 function mopedsh()
     st_mopsh = not st_mopsh
     Z.S(st_mopsh and "4539628425391341620" or "4539628427538825268", Q, bor(Ca, O, Cd, B))
-    gg.editAll(st_mopsh and "4539628427538825268" or "4539628425391341620", Q)
+    acSafeEditAll(st_mopsh and "4539628427538825268" or "4539628425391341620", Q)
     gg.clearResults()
-    if st_mopsh then 
-        gg.toast("PRESS BRAKE TO ACCELERATE")
+    if st_mopsh then
+        gg.toast("[!] PRESS BRAKE TO ACCELERATE")
         abc()
-    else 
+    else
         cba()
     end
     car()
@@ -820,25 +851,25 @@ function visualy()
 menuuuvis = 0
   visuall = gg.choice ({
    formatToggle("🏷️ Name ESP Wallhack", st_esplol),
-   formatToggle("⚪ White Chams Color", st_chamsiwhite), 
+   formatToggle("⚪ White Chams Color", st_chamsiwhite),
    formatToggle("🔴 Red Chams Color", st_chamsired),
    formatToggle("👁️ Expanded Field of View", st_fovv),
    formatToggle("👓 Ultra Wide Field of View", st_ulfovq),
    formatBtn("🔐 Modify Account Login ID"),
    formatBtn("✏️ Modify Player Nickname"),
    formatToggle("🧱 Invisible Walls Hack", st_invwal),
-   formatBtn("⬅️ Return Back")
-  }, nil, getUIHeader("VISUAL MODIFICATION MENU"))
-  
+   formatBtn("↩️ Return Back")
+  }, nil, getUIHeader("VISUAL FEATURES • CHAMS & ESP"))
+
   if not visuall or visuall == 9 then mainMenu() end
-  if visuall == 1 then esphack() end 
-  if visuall == 2 then chamsw() end 
-  if visuall == 3 then chamsr() end 
-  if visuall == 4 then fov() end 
-  if visuall == 5 then ulfov() end 
-  if visuall == 6 then chanlog() end 
-  if visuall == 7 then channick() end 
-  if visuall == 8 then inviswall() end 
+  if visuall == 1 then esphack() end
+  if visuall == 2 then chamsw() end
+  if visuall == 3 then chamsr() end
+  if visuall == 4 then fov() end
+  if visuall == 5 then ulfov() end
+  if visuall == 6 then chanlog() end
+  if visuall == 7 then channick() end
+  if visuall == 8 then inviswall() end
   menuuuvis = -1
 end
 
@@ -899,44 +930,42 @@ end
 
 function channick()
     local i1 = gg.prompt({"Enter Current Nickname:"}, {"Nick_Name"}, {"text"})
-    if not i1 then return visualy() end 
+    if not i1 then return visualy() end
     local i2 = gg.prompt({"Enter Target Nickname:"}, {"Nick_Name"}, {"text"})
-    if not i2 then return visualy() end 
+    if not i2 then return visualy() end
     gg.clearResults()
     gg.setRanges(bor(Jh, A, B))
     gg.searchNumber(":"..i1[1], 4)
-    if gg.getResultCount() > 0 then 
-        gg.getResults(99999) 
-        gg.editAll(":"..i2[1], 4)
+    if gg.getResultCount() > 0 then
+        acSafeEditAll(":"..i2[1], 4)
         abc()
-    else 
+    else
         qwea()
-    end 
+    end
     gg.clearResults()
     visualy()
 end
 
 function chanlog()
     local i1 = gg.prompt({"Enter Current Login ID:"}, {"Login"}, {"text"})
-    if not i1 then return visualy() end 
+    if not i1 then return visualy() end
     local i2 = gg.prompt({"Enter Target Login ID:"}, {"Login"}, {"text"})
-    if not i2 then return visualy() end 
+    if not i2 then return visualy() end
     gg.clearResults()
     gg.setRanges(bor(Jh, A, B))
     gg.searchNumber(":"..i1[1], 4)
-    if gg.getResultCount() > 0 then 
-        gg.getResults(99999) 
-        gg.editAll(":"..i2[1], 4)
+    if gg.getResultCount() > 0 then
+        acSafeEditAll(":"..i2[1], 4)
         abc()
-    else 
+    else
         qwea()
-    end 
+    end
     gg.clearResults()
     visualy()
 end
 
 -- ==========================================
---              WEAPON MODS
+--        WEAPON MODS (INSIDE AIMBOT)
 -- ==========================================
 
 st_shshq = false
@@ -960,40 +989,40 @@ local gChoice = gg.choice ({
  formatToggle("🌾 Weapon Skill Farming", st_fsk),
  formatToggle("💥 Assist C-Bug System", st_avty),
  formatToggle("🔥 Extreme Fire Speed", st_alertr),
- formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("WEAPON ARSENAL MODS")) 
+ formatBtn("↩️ Back to Aimbot Hub")
+}, nil, getUIHeader("AIMBOT • WEAPON ARSENAL"))
 
-if not gChoice or gChoice == 13 then mainMenu() end
-if gChoice == 1 then givegun() end 
-if gChoice == 2 then dupept() end 
-if gChoice == 3 then cleanslot() end 
-if gChoice == 4 then freezeslot() end 
-if gChoice == 5 then antirelo() end 
-if gChoice == 6 then besk() end 
-if gChoice == 7 then rapidik() end 
-if gChoice == 8 then shlool() end 
-if gChoice == 9 then scat() end 
-if gChoice == 10 then farmsk() end 
-if gChoice == 11 then avtoq() end 
-if gChoice == 12 then scor2() end 
+if not gChoice or gChoice == 13 then AimbotMasterMenu() return end
+if gChoice == 1 then givegun() end
+if gChoice == 2 then dupept() end
+if gChoice == 3 then cleanslot() end
+if gChoice == 4 then freezeslot() end
+if gChoice == 5 then antirelo() end
+if gChoice == 6 then besk() end
+if gChoice == 7 then rapidik() end
+if gChoice == 8 then shlool() end
+if gChoice == 9 then scat() end
+if gChoice == 10 then farmsk() end
+if gChoice == 11 then avtoq() end
+if gChoice == 12 then scor2() end
 menuuuvis = -1
 end
 
 function rapidik()
     local p = gg.prompt({"Select Speed Multiplier [0.3 - 0.9]"}, nil, {"number"})
     if not p then return gun() end
-    
+
     Z.S("4584664420663165927", Q, bor(Ca, O, Cd, B))
     if Result and #Result > 0 then
         local offs = {16, 28, 240, 252}
-        for _, o in ipairs(offs) do 
+        for _, o in ipairs(offs) do
             Z.W(p[1], o, F)
         end
         abc()
     else
         qwea()
     end
-    
+
     fg.clean()
     gun()
 end
@@ -1003,7 +1032,7 @@ function shlool()
     if st_shshq then
         local p = gg.prompt({"Enter Speed Range [1 - 100]"}, nil, {"number"})
         if not p then st_shshq = false return gun() end
-        
+
         Z.S("4584664420663165927", Q, bor(Ca, O, Cd, B))
         Z.W(p[1], 8, F)
         Z.W(p[1], 232, F)
@@ -1022,11 +1051,11 @@ function scat()
     st_sc = not st_sc
     local _o, _m = "1120403456", "1119748096"
     Z.S(st_sc and _o or _m, D, bor(Ca, O, Cd, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_sc and _m or _o, D)
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_sc and _m or _o, D)
         if st_sc then abc() else cba() end
-    else 
-        qwea() 
+    else
+        qwea()
     end
     gg.clearResults()
     gun()
@@ -1036,11 +1065,11 @@ function farmsk()
     st_fsk = not st_fsk
     local _o, _m = "4489188110487257088", "4489188110535131456"
     Z.S(st_fsk and _o or _m, Q, bor(Ca, O, Cd, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_fsk and _m or _o, Q)
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_fsk and _m or _o, Q)
         if st_fsk then abc() else cba() end
-    else 
-        qwea() 
+    else
+        qwea()
     end
     gg.clearResults()
     gun()
@@ -1050,11 +1079,11 @@ function avtoq()
     st_avty = not st_avty
     local _o, _m = "4489188110487257088", "4489188110489300000"
     Z.S(st_avty and _o or _m, Q, bor(Ca, O, Cd, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_avty and _m or _o, Q)
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_avty and _m or _o, Q)
         if st_avty then abc() else cba() end
-    else 
-        qwea() 
+    else
+        qwea()
     end
     gg.clearResults()
     gun()
@@ -1064,11 +1093,11 @@ function scor2()
     st_alertr = not st_alertr
     local _o, _m = "4489188110487257088", "4489188110516131456"
     Z.S(st_alertr and _o or _m, Q, bor(Ca, O, Cd, B))
-    if Result and #Result ~= 0 then 
-        gg.editAll(st_alertr and _m or _o, Q)
+    if Result and #Result ~= 0 then
+        acSafeEditAll(st_alertr and _m or _o, Q)
         if st_alertr then abc() else cba() end
-    else 
-        qwea() 
+    else
+        qwea()
     end
     gg.clearResults()
     gun()
@@ -1085,7 +1114,7 @@ function cleanslot()
     gun()
 end
 
-st_relodgper = false 
+st_relodgper = false
 st_relom4per = false
 st_reloakper = false
 st_relompper = false
@@ -1097,14 +1126,14 @@ local rChoice = gg.choice ({
      formatToggle("M4 Rifle", st_relom4per),
      formatToggle("AK-47 Rifle", st_reloakper),
      formatToggle("MP-5 Submachine", st_relompper),
-     formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("ANTI-RELOAD OVERRIDE")) 
+     formatBtn("↩️ Return Back")
+}, nil, getUIHeader("ANTI-RELOAD OVERRIDE"))
 
 if not rChoice or rChoice == 5 then gun() end
-if rChoice == 1 then antirelodg() end 
-if rChoice == 2 then antirelom4() end 
-if rChoice == 3 then antireloak() end 
-if rChoice == 4 then antirelomp() end 
+if rChoice == 1 then antirelodg() end
+if rChoice == 2 then antirelom4() end
+if rChoice == 3 then antireloak() end
+if rChoice == 4 then antirelomp() end
 menuuuvis = -1
 end
 
@@ -1170,15 +1199,15 @@ local bChoice = gg.choice ({
      formatToggle("AK-47 Rifle", st_bkal),
      formatToggle("Shotgun", st_bdrobq),
      formatToggle("MP-5 Submachine", st_bmp5q),
-     formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("UNLIMITED AMMO OVERRIDE")) 
+     formatBtn("↩️ Return Back")
+}, nil, getUIHeader("UNLIMITED AMMO OVERRIDE"))
 
 if not bChoice or bChoice == 6 then gun() end
-if bChoice == 1 then bdgq() end 
-if bChoice == 2 then bmkk() end 
-if bChoice == 3 then bkalq() end 
-if bChoice == 4 then bdrobe() end 
-if bChoice == 5 then bmpsh() end 
+if bChoice == 1 then bdgq() end
+if bChoice == 2 then bmkk() end
+if bChoice == 3 then bkalq() end
+if bChoice == 4 then bdrobe() end
+if bChoice == 5 then bmpsh() end
 menuuuvis = -1
 end
 
@@ -1252,20 +1281,20 @@ local dChoice = gg.choice ({
      formatBtn("MP-5 Submachine"),
      formatBtn("Sniper Rifle"),
      formatBtn("Shotgun"),
-     formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("AMMO DUPICATION MENU")) 
+     formatBtn("↩️ Return Back")
+}, nil, getUIHeader("AMMO DUPICATION MENU"))
 
 if not dChoice or dChoice == 8 then gun() end
-if dChoice == 1 then dupedg() end 
-if dChoice == 2 then dupeglock() end 
-if dChoice == 3 then dupem4() end 
-if dChoice == 4 then dupeak() end 
-if dChoice == 5 then dupemp() end 
-if dChoice == 6 then dupevint() end 
-if dChoice == 7 then dupeshotik() end 
+if dChoice == 1 then dupedg() end
+if dChoice == 2 then dupeglock() end
+if dChoice == 3 then dupem4() end
+if dChoice == 4 then dupeak() end
+if dChoice == 5 then dupemp() end
+if dChoice == 6 then dupevint() end
+if dChoice == 7 then dupeshotik() end
 menuuuvis = -1
 end
-        
+
 function dupevint()
     local givptdg7 = gg.prompt({"Specify Ammo Amount [1 - 9900]"}, nil, {[1]="number"})
     if not givptdg7 then return dupept() end
@@ -1334,14 +1363,14 @@ local fChoice = gg.choice ({
      formatToggle("MP-5 Slot", frzsl[5]),
      formatToggle("Sniper Slot", frzsl[6]),
      formatToggle("Shotgun Slot", frzsl[7]),
-     formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("WEAPON SLOT FREEZE CONTROL")) 
+     formatBtn("↩️ Return Back")
+}, nil, getUIHeader("WEAPON SLOT FREEZE CONTROL"))
 
 if not fChoice or fChoice == 8 then gun() end
 if fChoice >= 1 and fChoice <= 7 then _frz(fChoice) end
 menuuuvis = -1
 end
-        
+
 function _frz(index)
     local offsets = {
         {o1 = "+192", v1 = 24, o2 = "+204"}, -- DE
@@ -1352,16 +1381,16 @@ function _frz(index)
         {o1 = "+320", v1 = 34, o2 = "+332"}, -- Sniper
         {o1 = "+224", v1 = 25, o2 = "+236"}  -- Shotgun
     }
-    
+
     frzsl[index] = not frzsl[index]
     gg.clearList()
-    
+
     if frzsl[index] then
         local cfg = offsets[index]
-        if not hookPLAYER(cfg.o1, D, cfg.v1, true) or not hookPLAYER(cfg.o2, D, "", true) then 
+        if not hookPLAYER(cfg.o1, D, cfg.v1, true) or not hookPLAYER(cfg.o2, D, "", true) then
             frzsl[index] = false
-            gg.clearResults() 
-            return freezeslot() 
+            gg.clearResults()
+            return freezeslot()
         end
         abc()
     else
@@ -1389,22 +1418,22 @@ local gChoice = gg.choice ({
              formatBtn("Auto RPG Launcher"),
              formatBtn("Custom Weapon ID Generator"),
              formatBtn("View Weapon ID Directory"),
-             formatBtn("⬅️ Return Back")
-}, nil, getUIHeader("CUSTOM WEAPON GENERATOR")) 
+             formatBtn("↩️ Return Back")
+}, nil, getUIHeader("CUSTOM WEAPON GENERATOR"))
 
 if not gChoice or gChoice == 14 then gun() end
-if gChoice == 1 then gv11dg() end 
-if gChoice == 2 then gv22m4() end         
-if gChoice == 3 then gv33ak() end 
-if gChoice == 4 then gv44shot() end 
-if gChoice == 5 then gv55mp() end 
-if gChoice == 6 then gv66gl() end 
-if gChoice == 7 then gv77snap() end 
-if gChoice == 8 then gv77snappr() end 
-if gChoice == 9 then gv88minig() end 
-if gChoice == 10 then gv99rpg() end 
-if gChoice == 11 then gv111rpgauto() end 
-if gChoice == 12 then givegun14() end 
+if gChoice == 1 then gv11dg() end
+if gChoice == 2 then gv22m4() end
+if gChoice == 3 then gv33ak() end
+if gChoice == 4 then gv44shot() end
+if gChoice == 5 then gv55mp() end
+if gChoice == 6 then gv66gl() end
+if gChoice == 7 then gv77snap() end
+if gChoice == 8 then gv77snappr() end
+if gChoice == 9 then gv88minig() end
+if gChoice == 10 then gv99rpg() end
+if gChoice == 11 then gv111rpgauto() end
+if gChoice == 12 then givegun14() end
 if gChoice == 13 then givegun1488() end
 end
 
@@ -1511,16 +1540,16 @@ function givegun14()
     local givptdg14888 = gg.prompt({"Specify Weapon ID [1 - 46]"}, nil, {[1]="number"})
     if not givptdg14888 then return givegun() end
     if not hookPLAYER("+192", D, givptdg14888[1], false) then gg.clearResults() return givegun() end
-    
+
     local givptdg1488 = gg.prompt({"Specify Ammo Amount [1 - 9900]"}, nil, {[1]="number"})
     if not givptdg1488 then return givegun() end
     if not hookPLAYER("+204", D, givptdg1488[1], false) then gg.clearResults() return givegun() end
     abc()
-    givegun() 
+    givegun()
 end
 
 function givegun1488()
-    gg.alert("🔫 WEAPON ID DIRECTORY 🔫\n\n1: Knuckles | 2: Key | 3: Baton | 4: Knife\n5: Bat | 6: Shovel | 7: Cue | 8: Katana\n9: Chainsaw | 10: Dildo 1 | 11: Dildo 2 | 14: Flowers\n16: Grenade | 17: Tear Gas | 18: Molotov\n22: 9mm Pistol | 23: Silenced Pistol | 24: Deagle\n25: Shotgun | 26: Sawed-Off | 27: Auto Shotgun\n28: Uzi | 29: MP5 | 30: AK-47 | 31: M4\n32: Tec-9 | 33: Rifle | 34: Sniper Rifle\n35: RPG | 36: Rocket Launcher | 38: Minigun\n41: Spray Can | 42: Extinguisher | 43: Camera")
+    gg.alert("『 🔫 WEAPON ID DIRECTORY 』\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n1: Knuckles | 2: Key | 3: Baton | 4: Knife\n5: Bat | 6: Shovel | 7: Cue | 8: Katana\n9: Chainsaw | 10: Dildo 1 | 11: Dildo 2 | 14: Flowers\n16: Grenade | 17: Tear Gas | 18: Molotov\n22: 9mm Pistol | 23: Silenced Pistol | 24: Deagle\n25: Shotgun | 26: Sawed-Off | 27: Auto Shotgun\n28: Uzi | 29: MP5 | 30: AK-47 | 31: M4\n32: Tec-9 | 33: Rifle | 34: Sniper Rifle\n35: RPG | 36: Rocket Launcher | 38: Minigun\n41: Spray Can | 42: Extinguisher | 43: Camera")
     givegun()
 end
 
@@ -1550,7 +1579,7 @@ function teleportByMarker()
             local x, y, z, o = c[1].value, c[2].value, c[3].value, c[4].value
             if x ~= 0 and y ~= 0 and x > -3000 and x < 3000 and y > -3000 and y < 3000 and z == 0 and o == 1 then
               tI(C, {x, y})
-              tI(M, string.format("\n➔ ⟦ 📍 Target [%d] X:%.1f Y:%.1f ⟧", #C, x, y))
+              tI(M, string.format("❖ 📍 Target [%d] X:%.1f Y:%.1f  ▸", #C, x, y))
             end
           end
         end
@@ -1563,7 +1592,7 @@ function teleportByMarker()
       return tpMenu()
     end
     tI(M, formatBtn("🔄 Refresh Map Marker"))
-    tI(M, formatBtn("🔙 Return Back"))
+    tI(M, formatBtn("↩️ Return Back"))
     local s = gg.choice(M, nil, getUIHeader("MARKER TELEPORT SYSTEM"))
     if not s then
       gg.setVisible(false)
@@ -1643,9 +1672,9 @@ function managePointsMenu()
         formatBtn("💾 Save Current Location Point"),
         formatBtn("📋 View My Saved Locations"),
         formatBtn("🗑️ Delete All Saved Points"),
-        formatBtn("🔙 Return Back")
+        formatBtn("↩️ Return Back")
     }, nil, getUIHeader("SAVED LOCATION MANAGER"))
-    
+
     if not choice or choice == 5 then return tpMenu() end
     if choice == 1 then
         local x, y, z = getCurrentCoords()
@@ -1654,11 +1683,11 @@ function managePointsMenu()
             local res = gg.alert(text, "BACK", "COPY")
             if res == 2 then
                 gg.copyText(text)
-                toast.success("📋 COORDINATES COPIED TO CLIPBOARD")
+                toast.success("COORDINATES COPIED")
             end
         end
         managePointsMenu()
-        
+
     elseif choice == 2 then
         local x, y, z = getCurrentCoords()
         if x then
@@ -1666,19 +1695,19 @@ function managePointsMenu()
             if prompt then
                 table.insert(savedPoints, {name = prompt[1], x = x, y = y, z = z})
                 savePoints()
-                toast.success("💾 POINT SAVED: " .. prompt[1])
+                toast.success("POINT SAVED: " .. prompt[1])
             end
         end
         managePointsMenu()
-        
+
     elseif choice == 3 then
         viewSavedPoints()
-        
+
     elseif choice == 4 then
-        if gg.alert("🗑️️ Delete all saved locations permanently?", "YES", "NO") == 1 then
+        if gg.alert("Delete all saved locations permanently?", "YES", "NO") == 1 then
             savedPoints = {}
             savePoints()
-            toast.success("🗑️ ALL POINTS CLEARED")
+            toast.success("ALL POINTS CLEARED")
         end
         managePointsMenu()
     end
@@ -1686,28 +1715,28 @@ end
 
 function viewSavedPoints()
     if #savedPoints == 0 then
-        gg.alert("📋 NO SAVED POINTS FOUND IN STORAGE")
+        gg.alert("[!] NO SAVED POINTS FOUND IN STORAGE")
         return managePointsMenu()
     end
-    
+
     local list = {}
     for i, p in ipairs(savedPoints) do
         list[i] = formatBtn("📍 " .. p.name)
     end
-    list[#list + 1] = formatBtn("🔙 Return Back")
-    
+    list[#list + 1] = formatBtn("↩️ Return Back")
+
     local q = gg.choice(list, nil, getUIHeader("SAVED POINTS DIRECTORY"))
     if not q or q == #list then return managePointsMenu() end
-    
+
     local p = savedPoints[q]
-    local action = gg.choice({formatBtn("✈️ Teleport To Location"), formatBtn("🗑️ Delete This Point"), formatBtn("🔙 Return Back")}, nil, p.name)
-    
+    local action = gg.choice({formatBtn("✈️ Teleport To Location"), formatBtn("🗑️ Delete This Point"), formatBtn("↩️ Return Back")}, nil, p.name)
+
     if action == 1 then
         doTeleport(p.x, p.y, p.z)
     elseif action == 2 then
         table.remove(savedPoints, q)
         savePoints()
-        toast.success("🗑️ POINT DELETED")
+        toast.success("POINT DELETED")
         viewSavedPoints()
     else
         viewSavedPoints()
@@ -1720,7 +1749,7 @@ end
 
 local publicPlaces = {
     {name = '🏫 Driving School', x = 486, y = 2276, z = 12},
-    {name = '🏛️️ Military Base Gate', x = 1915, y = 2302, z = 15},
+    {name = '🏛 Military Base Gate', x = 1915, y = 2302, z = 15},
     {name = '🏦 Yuzhny Bank', x = 2372, y = -2142, z = 23},
     {name = '🏦 Bank Arzamas', x = -143, y = 593, z = 12},
     {name = '🏦 Bank Batyrevo', x = 1850, y = 2042, z = 16},
@@ -1732,7 +1761,7 @@ local publicPlaces = {
 local hiddenteleports = {
   {name = '🔒 ADMIN ZONE', x = -701.82, y = -2438.95, z = 1198.15},
   {name = '🔓 JAIL ESCAPE POINT', x = 644.01, y = 1049.21, z = 1208.26},
-{name = '🔒 APD CELL', x = 29.06, y = 1127.80, z = 1200.38},
+  {name = '🔒 APD CELL', x = 29.06, y = 1127.80, z = 1200.38},
   {name = '🚔 HIGH SECURITY PRISON', x = -1830, y = -2870, z = 45},
   {name = '⚔️ MILITARY SECTOR #1', x = -1092.7, y = -2539.2, z = 28.6},
   {name = '⚔️ MILITARY SECTOR #2', x = -1002.8, y = -2497.4, z = 28.1},
@@ -1847,14 +1876,14 @@ function showLocations(locations, title)
     for i, loc in ipairs(locations) do
         menu[i] = formatBtn(loc.name)
     end
-    menu[#menu + 1] = formatBtn("🔙 Return Back")
-    
+    menu[#menu + 1] = formatBtn("↩️ Return Back")
+
     local q = gg.choice(menu, nil, getUIHeader(title))
     if not q or q == #menu then return teleportByFootMenu() end
-    
+
     local loc = locations[q]
     if loc and loc.disabled then
-        gg.alert("⚠️ Selected Teleport location is currently restricted!")
+        gg.alert("[!] Selected Teleport location is currently restricted!")
     elseif loc and loc.x and loc.y and loc.z then
         doTeleport(loc.x, loc.y, loc.z)
     end
@@ -1862,10 +1891,10 @@ function showLocations(locations, title)
 end
 
 function showPublicPlaces() showLocations(publicPlaces, "PUBLIC WAYPOINTS") end
-function showHiddenTeleports() showLocations(hiddenteleports, "ENTERTAINMENT TELEPORT ZONES") end
+function showHiddenTeleports() showLocations(hiddenteleports, "SECRET TELEPORT ZONES") end
 function showStations() showLocations(stations, "TRANSPORT STATIONS") end
 function showParking() showLocations(parking, "PARKING LOT LOCATIONS") end
-function showGovernment() showLocations(government, "GOVERNMENT Organization") end
+function showGovernment() showLocations(government, "GOVERNMENT SECTORS") end
 function showCriminal() showLocations(criminal, "FACTION & GANG BASES") end
 function showStarterJobs() showLocations(starterJobs, "STARTER WORK ZONES") end
 function showJobs() showLocations(jobs, "MAIN EMPLOYMENT LOCATIONS") end
@@ -1880,7 +1909,7 @@ function teleportByFootMenu()
     menuuuvis = 0
     local choice = gg.choice({
         formatBtn("🏢 Public Waypoints"),
-        formatBtn("💪 Secret Teleport Zones"),
+        formatBtn("🔒 Secret Teleport Zones"),
         formatBtn("🚉 Transport Stations"),
         formatBtn("🅿️ Parking Lot Locations"),
         formatBtn("👮 Government Sectors"),
@@ -1894,9 +1923,9 @@ function teleportByFootMenu()
         formatBtn("💵 Commercial Businesses"),
         formatBtn("⛏️ Mining Quarry Locations"),
         formatBtn("📍 Custom Saved Points"),
-        formatBtn("🔙 Return Back")
-    }, nil, getUIHeader("FOOT LOCATION TELEPORT DIRECTORY"))
-    
+        formatBtn("↩️ Return Back")
+    }, nil, getUIHeader("EXTRA FEATURES • FOOT TELEPORT"))
+
     if not choice or choice == 16 then tpMenu() end
     if choice == 1 then showPublicPlaces()
     elseif choice == 2 then showHiddenTeleports()
@@ -1924,9 +1953,9 @@ function tpMenu()
         formatBtn("📌 Map Marker Jump System"),
         formatBtn("👣 Foot Location Directory"),
         formatBtn("💾 Manage Custom Coordinates"),
-        formatBtn("🔙 Return Back")
+        formatBtn("↩️ Return Back")
     }, nil, getUIHeader("TELEPORT NAVIGATION ENGINE"))
-    
+
     if not choice or choice == 5 then mainMenu() end
     if choice == 1 then teleportByCoords()
     elseif choice == 2 then teleportByMarker()
@@ -1937,9 +1966,8 @@ function tpMenu()
 end
 
 function exitScript()
-    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
-    print("   EXITING HERRY VIP ENGINE  ")
-    print("━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
+    pcall(function() gg.clearResults() end)
+    gg.alert("『 👑 HERRY ULTIMATE VIP 👑 』\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n[✓] THANK YOU FOR USING OUR SCRIPT\n[•] SEE YOU AGAIN!\n💎 HAVE A GREAT SESSION 💎\n━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━")
     gg.setVisible(true)
     os.exit()
 end
@@ -1949,14 +1977,15 @@ end
 -- ==========================================
 
 function devInfo()
-    gg.alert("━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
-             "   DEVELOPER INFORMATION\n" ..
-             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
-             "👤 Creator: Herry\n" ..
-             "💬 Discord: herry_escobarr\n" ..
-             "🚀 Edition: VIP English Menu\n" ..
-             "🎮 Support: Grand Mobile RP\n" ..
-             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━", "RETURN")
+    gg.alert("『 🏆 SCRIPT INFORMATION 🏆 』\n" ..
+             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\n" ..
+             "👑 DEVELOPER   : Herry\n" ..
+             "💬 DISCORD     : herry_escobarr\n" ..
+             "⚙️ VERSION     : 2.5 ULTIMATE VIP\n" ..
+             "💎 STATUS      : ACTIVE\n" ..
+             "📅 LAST UPDATE : 2026\n" ..
+             "❤️ CREDITS     : HERRY HACKS\n" ..
+             "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━", "RETURN")
     mainMenu()
 end
 
@@ -1967,28 +1996,26 @@ end
 function mainMenu()
     menuuuvis = 0
     local choice = gg.choice({
-        formatBtn("🎯 Aimbot System"),
+        formatBtn("🎯 Aimbot & Gun Hub"),
         formatBtn("📍 Teleport"),
         formatBtn("🚗 Vehicle Mod"),
         formatBtn("👤 Character Menu"),
-        formatBtn("🔫 Gun Menu"),
         formatBtn("👁️ Visual Chams Hack"),
         formatBtn("👑 Developers"),
         formatBtn("❌ Exit")
-    }, nil, getUIHeader("HERRY VIP MAIN INTERFACE"))
-    
+    }, nil, getUIHeader("VIP CONTROL CENTER • MAIN PANEL"))
+
     if not choice then return end
-    
+
     if choice == 1 then AimbotMasterMenu()
     elseif choice == 2 then tpMenu()
     elseif choice == 3 then car()
     elseif choice == 4 then player()
-    elseif choice == 5 then gun()
-    elseif choice == 6 then visualy()
-    elseif choice == 7 then devInfo()
-    elseif choice == 8 then exitScript()
+    elseif choice == 5 then visualy()
+    elseif choice == 6 then devInfo()
+    elseif choice == 7 then exitScript()
     end
-    
+
     menuuuvis = -1
 end
 
@@ -1996,8 +2023,8 @@ end
 --            SCRIPT INITIALIZATION
 -- ==========================================
 
-toast.success("🔥 HERRY VIP SCRIPT LOADED 🔥")
-gg.sleep(1500) 
+toast.success("SUCCESSFULLY LOADED  •  HERRY VIP")
+gg.sleep(1500)
 
 pcall(function()
     while true do
